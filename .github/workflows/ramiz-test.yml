@@ -1,27 +1,31 @@
-name: Create and Commit to New Branch
+name: Auto Branch and Replace Text
+
 on:
   push:
     branches:
-      - main
-jobs:
-  create_and_commit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create new branch
-        run: git checkout -b new-branch
-      - name: Replace text
-        run: |
-            find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
+      - main  # Specify the branch you want to trigger this workflow on
 
-      - name: Authentication
-        run: |
-          git config --global user.email "ramizg.aipl@gmail.com"
-          git config --global user.name "Ramiz Girach"
-      - name: Commit changes
-        run: |
-          git add .
-          git commit -m "Add new content 2"
-      - name: Push changes to new branch
-        run: |
-          git push origin new-branch
-          
+jobs:
+  auto_branch_and_replace_text:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Create new branch
+      run: git checkout -b new-after-replaced-branch
+
+    - name: Replace text
+      run: |
+            find . -type f -name '*.*' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
+
+    - name: Commit and push changes
+      run: |
+       git config --global user.email "ramizg.aipl@gmail.com"
+        git config --global user.name "Ramiz Girach"
+        git add .
+        git commit -m "Automated text replacement"
+        git push origin new-after-replaced-branch
+
+        
