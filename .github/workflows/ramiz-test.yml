@@ -15,12 +15,10 @@ jobs:
 
     - name: Create new branch
       run: git checkout -b ramiz-branch
-    
-    - name: Replace text
+
+    - name: Make changes
       run: |
-        find . -type f -name '*.*' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
-            
-    
+        echo "New content" >> example.txt  # Example of making changes, replace with your own commands
     - name: Authentication
       run: |
           git config --global user.email "ramizg.aipl@gmail.com"
