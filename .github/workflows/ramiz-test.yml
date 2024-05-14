@@ -24,7 +24,4 @@ jobs:
       - name: Push changes to new branch
         run: |
           git push origin fresh-branch
-      - name: Push changes to new branch
-        run: |
-          git push origin fresh-branch
           
