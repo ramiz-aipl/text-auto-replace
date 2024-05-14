@@ -26,4 +26,4 @@ jobs:
         git config --local user.name "Ramiz Girach"
         git add .
         git commit -m "Automated text replacement"
-        git push origin test
+        git push origin new-after-replaced-branch
