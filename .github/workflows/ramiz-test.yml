@@ -16,10 +16,17 @@ jobs:
     - name: Create new branch
       run: git checkout -b fresh-branch
       
-    - name: Replace text
-      run: |
-            find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
-            
+    #- name: Replace text
+     # run: |
+      #      find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
+
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@v3
+      with:
+          find: "Hello Ramiz"
+          replace: "Hello Ramiz Musabhai Girach"
+          regex: false
+          
     - name: Authentication
       run: |
           git config --global user.email "ramizg.aipl@gmail.com"
