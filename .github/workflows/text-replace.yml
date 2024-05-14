@@ -25,8 +25,8 @@ jobs:
        git config --global user.email "ramizg.aipl@gmail.com"
         git config --global user.name "Ramiz Girach"
         git add .
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: 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
+        git commit -m "Automated text replacement"
+        git push origin new-after-replaced-branch
+        
+   
         
