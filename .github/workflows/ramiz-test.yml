@@ -5,9 +5,22 @@ on:
     branches:
       - main  # Define the trigger branch, adjust as needed
 
-jobs:
-  create_and_commit:
-    runs-on: ubuntu-latest
+#jobs:
+ # create_and_commit:
+  #  runs-on: ubuntu-latest
+
+   # steps:
+    #- name: Checkout repository
+     # uses: actions/checkout@v2
+
+    #- name: Create new branch
+     # run: git checkout -b fresh-branch
+      
+    #- name: Replace text
+     # run: |
+      #      find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
+steps:
+  runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
@@ -16,28 +29,25 @@ jobs:
     - name: Create new branch
       run: git checkout -b fresh-branch
       
-    #- name: Replace text
-     # run: |
-      #      find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
-
-    - name: Find and Replace
-      uses: jacobtomlinson/gha-find-replace@v3
-      with:
-          find: "Hello Ramiz"
-          replace: "Hello Ramiz Musabhai Girach"
-          regex: false
-          
-    - name: Authentication
-      run: |
+      - uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "hello"
+          replace: "world"
+          include: "justthisdirectory/**"
+          regex: true 
+      - name: Authentication
+        run: |
           git config --global user.email "ramizg.aipl@gmail.com"
           git config --global user.name "Ramiz Girach"
   
-    - name: Commit changes
-      run: |
-        git add .
-        git commit -m "Add new content 2"
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Add new content 2"
 
-    - name: Push changes to new branch
-      run: |
-        git push origin fresh-branch
+      - name: Push changes to new branch
+        run: |
+          git push origin fresh-branch
         
