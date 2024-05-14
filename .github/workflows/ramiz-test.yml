@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create new branch
-        run: git checkout -b fresh-branch
+        run: git checkout -b new-branch
       - name: Replace text
         run: |
             find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
@@ -23,5 +23,5 @@ jobs:
           git commit -m "Add new content 2"
       - name: Push changes to new branch
         run: |
-          git push origin fresh-branch
+          git push origin new-branch
           
