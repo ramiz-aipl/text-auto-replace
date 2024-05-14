@@ -22,8 +22,8 @@ jobs:
 
     - name: Commit and push changes
       run: |
-       git config --local user.email "ramizg.aipl@gmail.com"
-        git config --local user.name "Ramiz Girach"
+       git config --global user.email "ramizg.aipl@gmail.com"
+        git config --global user.name "Ramiz Girach"
         git add .
         git commit -m "Automated text replacement"
         git push origin new-after-replaced-branch
