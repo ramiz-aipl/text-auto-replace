@@ -7,13 +7,12 @@ jobs:
   create_and_commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
       - name: Create new branch
         run: git checkout -b fresh-branch
       - name: Replace text
-        run: >
-          find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz
-          Girach/g' {} +
+        run: |
+            find . -type f -name '*.*' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
+
       - name: Authentication
         run: |
           git config --global user.email "ramizg.aipl@gmail.com"
