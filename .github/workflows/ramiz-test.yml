@@ -18,7 +18,11 @@ jobs:
       
     - name: Replace text
       run: |
-            find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
+        with:
+          find: "Hello Ramiz"
+          replace: "Hello Ramiz Girach"
+          regex: false
+            #find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
             
     - name: Authentication
       run: |
