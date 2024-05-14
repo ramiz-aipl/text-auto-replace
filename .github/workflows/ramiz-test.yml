@@ -11,7 +11,7 @@ jobs:
         run: git checkout -b fresh-branch
       - name: Replace text
         run: |
-            find . -type f -name '*.*' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
+            find . -type f -name '*.txt' -exec sed -i 's/Hello Ramiz/Hello Ramiz Girach/g' {} +
 
       - name: Authentication
         run: |
