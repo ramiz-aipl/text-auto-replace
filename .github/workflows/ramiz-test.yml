@@ -29,10 +29,10 @@ jobs:
           git config --global user.email "ramizg.aipl@gmail.com"
           git config --global user.name "Ramiz Girach"
   
-    - name: Commit changes
-      run: |
-        git add .
-        git commit -m "Add new content"
+    # - name: Commit changes
+    #   run: |
+    #     git add .
+    #     git commit -m "Add new content"
 
     - name: Push changes to new branch
       run: |
